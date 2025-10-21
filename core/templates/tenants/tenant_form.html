@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Tenant Form{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Edit Tenant{% else %}Add Tenant{% endif %}</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn">Save</button>
+  <a class="btn ghost" href="{% url 'tenant-list' %}">Cancel</a>
+</form>
+{% endblock %}

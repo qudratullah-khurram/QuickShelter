@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+<div class="login">
+  <h1>Log in to QuickShelter</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn">Log in</button>
+  </form>
+</div>
+{% endblock %}

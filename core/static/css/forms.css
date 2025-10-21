@@ -1,0 +1,4 @@
+/* forms.css */
+form{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 8px 18px rgba(14,30,37,0.06); }
+form input, form textarea, form select { width:100%; padding:10px; border:1px solid #e6eefc; border-radius:8px; margin-bottom:10px; }
+form label{ font-weight:600; display:block; margin-bottom:6px; }

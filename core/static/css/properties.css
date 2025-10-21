@@ -1,0 +1,4 @@
+/* properties.css */
+.property{ padding:18px; background:var(--card); border-radius:12px; box-shadow: 0 8px 18px rgba(14,30,37,0.06); }
+.property .actions{ margin:14px 0; display:flex; gap:8px; }
+.property ul{ margin:8px 0 0; }

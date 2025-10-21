@@ -1,0 +1,6 @@
+/* landlords.css */
+.entity-list li{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.entity-list li a{ font-weight:600; color:#0f172a; }
+.entity-list li small{ color:var(--muted); }
+.detail section{ margin-top:16px; }
+.detail .actions{ margin-top:12px; display:flex; gap:8px; }

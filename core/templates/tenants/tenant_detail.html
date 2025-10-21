@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/tenants.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="tenant detail">
+  <h1>{{ object.name }}</h1>
+  <p><strong>Passport:</strong> {{ object.passport_number }}</p>
+  <p><strong>Email:</strong> {{ object.email }}</p>
+  <p><strong>Phone:</strong> {{ object.phone }}</p>
+  <p><strong>Property:</strong>
+    {% if object.property %}
+      <a href="{% url 'property-detail' object.property.pk %}">{{ object.property.title }}</a>
+    {% else %}
+      <em>Not assigned</em>
+    {% endif %}
+  </p>
+  <p><strong>Tenancy:</strong> {{ object.tenancy_start }} → {{ object.tenancy_end }}</p>
+
+  <div class="actions">
+    <a class="btn" href="{% url 'tenant-edit' object.pk %}">Edit</a>
+    <a class="btn danger" href="{% url 'tenant-delete' object.pk %}">Delete</a>
+  </div>
+</section>
+{% endblock %}

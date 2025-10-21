@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Tenants{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/tenants.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Tenants</h1>
+<a class="btn" href="{% url 'tenant-add' %}">+ Add Tenant</a>
+
+<ul class="entity-list">
+  {% for tenant in tenants %}
+    <li>
+      <div>
+        <a href="{% url 'tenant-detail' tenant.pk %}">{{ tenant.name }}</a>
+        <p class="muted">{{ tenant.passport_number }}</p>
+      </div>
+      <small>
+        Property:
+        {% if tenant.property %}
+          <a href="{% url 'property-detail' tenant.property.pk %}">{{ tenant.property.title }}</a>
+        {% else %}
+          <em>Unassigned</em>
+        {% endif %}
+      </small>
+    </li>
+  {% empty %}
+    <li><em>No tenants found.</em></li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,95 @@
+/* base.css — global base styles */
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --accent:#2d6cdf;
+  --muted:#6b7280;
+  --danger:#e74c3c;
+  --radius:12px;
+  --max-width:1100px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  background:linear-gradient(180deg,#f6f8fb 0%, #ffffff 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  width:95%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:24px 0;
+}
+
+.qs-header{
+  background:var(--card);
+  border-bottom:1px solid #eef2f7;
+  position:sticky;
+  top:0;
+  z-index:40;
+}
+.qs-header .container{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  padding:12px 0;
+}
+.logo{
+  font-weight:700;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:1.25rem;
+}
+.qs-nav{
+  margin-left:auto;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.qs-nav a{ text-decoration:none; color:#334155; padding:8px 10px; border-radius:8px; }
+.qs-nav a:hover{ background:#f1f5f9; }
+
+.qs-footer{
+  margin-top:48px;
+  padding:18px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* Utility */
+.btn{
+  display:inline-block;
+  padding:10px 14px;
+  background:var(--accent);
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.ghost{ background:transparent; color:var(--accent); border:1px solid #e6eefc; }
+.btn.small{ padding:6px 10px; font-size:0.9rem; border-radius:8px; }
+.btn.danger{ background:var(--danger); }
+
+.lead{ color:var(--muted); margin-bottom:12px; }
+
+/* Cards & lists */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow: 0 6px 18px rgba(14,30,37,0.06);
+}
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.entity-list{ list-style:none; padding:0; margin:18px 0; }
+.entity-list li{ padding:10px 0; border-bottom:1px dashed #f1f5f9; }
+.muted{ color:var(--muted); font-size:0.95rem; }
+.detail{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 8px 18px rgba(14,30,37,0.06); }

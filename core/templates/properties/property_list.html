@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Properties{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/properties.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Properties</h1>
+<a class="btn" href="{% url 'property-add' %}">+ Add Property</a>
+
+<ul class="entity-list">
+  {% for property in properties %}
+    <li>
+      <div>
+        <a href="{% url 'property-detail' property.pk %}">{{ property.title }}</a>
+        <p class="muted">{{ property.property_type }} | {{ property.rent_amount }} / {{ property.rent_frequency }}</p>
+      </div>
+      <small>
+        {% if property.landlord %}
+          Landlord: <a href="{% url 'landlord-detail' property.landlord.pk %}">{{ property.landlord.name }}</a>
+        {% else %}
+          <em>No landlord assigned</em>
+        {% endif %}
+      </small>
+    </li>
+  {% empty %}
+    <li><em>No properties found.</em></li>
+  {% endfor %}
+</ul>
+{% endblock %}

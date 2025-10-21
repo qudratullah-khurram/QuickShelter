@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/properties.css' %}">
+{% endblock %}
+
+{% block content %}
+<article class="property">
+  <h1>{{ object.title }}</h1>
+  <p class="muted">{{ object.address }}</p>
+  <p>Type: {{ object.property_type }}</p>
+  <p>Rent: {{ object.rent_amount }} / {{ object.rent_frequency }}</p>
+  <p>
+    Landlord:
+    {% if object.landlord %}
+      <a href="{% url 'landlord-detail' object.landlord.pk %}">{{ object.landlord.name }}</a>
+    {% else %}
+      <em>Not assigned</em>
+    {% endif %}
+  </p>
+
+  <div class="actions">
+    <a class="btn" href="{% url 'property-edit' object.pk %}">Edit</a>
+    <a class="btn danger" href="{% url 'property-delete' object.pk %}">Delete</a>
+  </div>
+
+  <section>
+    <h2>Tenants</h2>
+    <ul>
+      {% for tenant in object.tenants.all %}
+        <li>
+          <a href="{% url 'tenant-detail' tenant.pk %}">{{ tenant.name }}</a>
+          — {{ tenant.tenancy_start }} → {{ tenant.tenancy_end }}
+        </li>
+      {% empty %}
+        <li><em>No tenants currently assigned.</em></li>
+      {% endfor %}
+    </ul>
+  </section>
+</article>
+{% endblock %}

@@ -1,0 +1,5 @@
+/* dashboard.css */
+.dashboard h1{ margin-top:6px; font-size:1.6rem; }
+.dashboard .card h3{ margin:0 0 8px; }
+.dashboard .card ul{ margin:8px 0 12px; padding-left:16px; color:var(--muted); }
+.dashboard .card .btn{ margin-top:6px; }

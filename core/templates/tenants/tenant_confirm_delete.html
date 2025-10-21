@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete Tenant{% endblock %}
+{% block content %}
+<h1>Confirm Delete</h1>
+<p>Are you sure you want to delete <strong>{{ object.name }}</strong>?</p>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn danger">Yes, Delete</button>
+  <a class="btn ghost" href="{% url 'tenant-detail' object.pk %}">Cancel</a>
+</form>
+{% endblock %}

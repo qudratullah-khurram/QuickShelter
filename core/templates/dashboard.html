@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+{% block content %}
+<section class="dashboard">
+  <h1>Welcome to QuickShelter</h1>
+  <p class="lead">Overview of your landlords, properties and tenants</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Landlords</h3>
+      <p>{{ landlords.count }} total</p>
+      <ul>
+        {% for l in landlords %}
+          <li><a href="{% url 'landlord-detail' l.pk %}">{{ l.name }}</a></li>
+        {% empty %}
+          <li><em>No landlords yet</em></li>
+        {% endfor %}
+      </ul>
+      <a class="btn" href="{% url 'landlord-add' %}">Add Landlord</a>
+    </div>
+
+    <div class="card">
+      <h3>Properties</h3>
+      <p>{{ properties.count }} total</p>
+      <ul>
+        {% for p in properties %}
+          <li><a href="{% url 'property-detail' p.pk %}">{{ p.title }}</a>{% if p.landlord %} — {{ p.landlord.name }}{% endif %}</li>
+
+        {% empty %}
+          <li><em>No properties yet</em></li>
+        {% endfor %}
+      </ul>
+      <a class="btn" href="{% url 'property-add' %}">Add Property</a>
+    </div>
+
+    <div class="card">
+      <h3>Tenants</h3>
+      <p>{{ tenants.count }} total</p>
+      <ul>
+        {% for t in tenants %}
+          <li><a href="{% url 'tenant-detail' t.pk %}">{{ t.name }}</a> — {{ t.property.title }}</li>
+        {% empty %}
+          <li><em>No tenants yet</em></li>
+        {% endfor %}
+      </ul>
+      <a class="btn" href="{% url 'tenant-add' %}">Add Tenant</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

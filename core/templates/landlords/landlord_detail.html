@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/landlords.css' %}">
+{% endblock %}
+{% block content %}
+<div class="detail">
+  <h1>{{ object.name }}</h1>
+  <p>{{ object.address }}</p>
+  <p>Phone: {{ object.phone_number }} | Email: {{ object.email }}</p>
+  <a class="btn small" href="{% url 'landlord-edit' object.pk %}">Edit</a>
+  <a class="btn small danger" href="{% url 'landlord-delete' object.pk %}">Delete</a>
+
+  <section>
+    <h2>Properties</h2>
+    <ul>
+      {% for p in object.properties.all %}
+        <li><a href="{% url 'property-detail' p.pk %}">{{ p.title }}</a> — {{ p.property_type }} — {{ p.rent_amount }} / {{ p.rent_frequency }}</li>
+      {% empty %}
+        <li><em>No properties for this landlord.</em></li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+{% endblock %}
