@@ -2,11 +2,6 @@
 from django.contrib import admin
 from .models import Landlord, Property, Tenant
 
-# admin.site.register(Landlord)
-# admin.site.register(Property)
-# admin.site.register(Tenant)
-
-
 @admin.register(Landlord)
 class LandlordAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "phone_number", "created_by", "created_at")

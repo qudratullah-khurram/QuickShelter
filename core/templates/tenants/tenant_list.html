@@ -8,7 +8,6 @@
 {% block content %}
 <h1>Tenants</h1>
 <a class="btn" href="{% url 'tenant-add' %}">+ Add Tenant</a>
-
 <ul class="entity-list">
   {% for tenant in tenants %}
     <li>

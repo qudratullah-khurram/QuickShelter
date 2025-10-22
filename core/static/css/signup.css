@@ -1,0 +1,282 @@
+/* === Fix Navbar to be full width and clean === */
+
+.qs-header {
+  width: 100%;
+  background-color: #2c3e50; /* dark blue background */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.qs-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.qs-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.qs-nav a:hover {
+  color: #a5d8ff;
+}
+
+/* Fix list items (if <li> is used inside .qs-nav) */
+.qs-nav li {
+  list-style: none;
+}
+
+/* Fix the Log Out button form inside nav */
+.qs-nav form button {
+  font-size: 1rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.qs-nav form button:hover {
+  color: #ffb3b3;
+}
+
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Page header centering */
+.page-header {
+  width: 100% !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Form container override */
+.form-container {
+  margin: 0 auto !important;
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  max-width: 500px !important;
+  width: 100% !important;
+  padding: 2.5rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+/* Force form table rows into block layout */
+form table, form table tr, form table td {
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Labels */
+form table label {
+  display: block !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  color: #374151 !important;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100% !important;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+  background: #f9fafb !important;
+  margin-top: 0.25rem !important;
+  font-size: 1rem !important;
+}
+
+/* Submit button */
+button.submit {
+  display: block !important;
+  width: 100% !important;
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.9rem !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  margin-top: 1.5rem !important;
+}
+
+/* Navbar: remove any styling */
+/* Target only when on signup page — use a parent class if possible */
+/* We'll override common nav link styles to neutral */
+.qs-nav a,
+.qs-nav li a,
+.qs-nav form button {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Error message */
+.red-text {
+  background: #fee2e2 !important;
+  color: #b91c1c !important;
+  border-left: 4px solid #b91c1c !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 1rem !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f4f6f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* === Page Header === */
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+/* === Form Container === */
+.form-container {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+/* === Form Table (Django default) === */
+form table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+form table tr {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+form table td {
+  width: 100%;
+}
+
+form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 1rem;
+  transition: 0.3s border, 0.3s box-shadow;
+  margin-top: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* === Submit Button === */
+button.submit {
+  display: block;
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+button.submit:hover {
+  background-color: #2563eb;
+  transform: scale(1.01);
+}
+
+/* === Error Message === */
+.red-text {
+  color: #b91c1c;
+  background: #fee2e2;
+  border-left: 4px solid #b91c1c;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+/* === Responsive === */
+@media (max-width: 500px) {
+  .form-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+}

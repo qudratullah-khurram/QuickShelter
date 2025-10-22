@@ -9,6 +9,13 @@ from .models import Landlord, Property, Tenant
 from .forms import LandlordForm, PropertyForm, TenantForm
 from django.db.models import Prefetch
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
+
+
+def force_logout(request):
+    logout(request)
+    return redirect('home')
+
 
 class Home(LoginView):
     template_name = 'home.html'
@@ -17,7 +24,6 @@ class OwnedObjectMixin(UserPassesTestMixin):
     """Mixin to ensure object belongs to current user (created_by) or is related."""
     def test_func(self):
         obj = self.get_object()
-        # Accept operations if the user created the object
         try:
             return obj.created_by == self.request.user
         except AttributeError:
@@ -29,7 +35,6 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        # show landlords, properties, tenants created by user
         user = self.request.user
         ctx["landlords"] = Landlord.objects.filter(created_by=user)
         ctx["properties"] = Property.objects.filter(created_by=user).select_related("landlord")

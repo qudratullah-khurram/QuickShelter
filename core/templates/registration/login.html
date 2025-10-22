@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Log In{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="login">
   <h1>Log in to QuickShelter</h1>
@@ -11,3 +15,4 @@
   </form>
 </div>
 {% endblock %}
+

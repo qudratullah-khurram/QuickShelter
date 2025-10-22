@@ -1,6 +1,202 @@
-/* landlords.css */
-.entity-list li{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
-.entity-list li a{ font-weight:600; color:#0f172a; }
-.entity-list li small{ color:var(--muted); }
-.detail section{ margin-top:16px; }
-.detail .actions{ margin-top:12px; display:flex; gap:8px; }
+/* === Colorful & Stylish Landlords List & Detail === */
+
+h1 {
+  font-size: 2.6rem;
+  color: #2c3e50; /* deep blue-gray */
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  text-shadow: 1px 1px 4px rgba(44, 62, 80, 0.5);
+}
+
+.btn {
+  background: linear-gradient(45deg, #48c6ef, #6f86d6);
+  color: white;
+  padding: 0.75rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 5px 18px rgba(111, 134, 214, 0.7);
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #6f86d6, #48c6ef);
+  box-shadow: 0 8px 25px rgba(72, 198, 239, 0.9);
+  transform: scale(1.07);
+}
+
+.btn.danger {
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  box-shadow: 0 5px 18px rgba(255, 159, 101, 0.7);
+}
+
+.btn.danger:hover {
+  background: linear-gradient(45deg, #ffc371, #ff5f6d);
+  box-shadow: 0 8px 25px rgba(255, 159, 101, 0.9);
+  transform: scale(1.07);
+}
+
+.entity-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.entity-list li {
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(111, 134, 214, 0.25);
+  margin-bottom: 1.2rem;
+  padding: 18px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.entity-list li:hover {
+  box-shadow: 0 10px 30px rgba(72, 198, 239, 0.5);
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #6f86d6, #48c6ef);
+  color: white;
+}
+
+.entity-list li:hover a,
+.entity-list li:hover small {
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.entity-list li a {
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.entity-list li small {
+  font-size: 0.95rem;
+  color: #66788a;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+/* Landlord Detail Page */
+
+.detail {
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #f9f9fb, #e3e7ef);
+  border-radius: 18px;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 8px 30px rgba(111, 134, 214, 0.3);
+  text-align: center;
+}
+
+.detail h1 {
+  font-weight: 900;
+  color: #3a4969;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.4px;
+  text-shadow: 1px 1px 4px rgba(58, 73, 105, 0.5);
+}
+
+.detail p {
+  font-size: 1.2rem;
+  color: #556a8a;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.detail p strong {
+  color: #3a4969;
+  font-weight: 700;
+  margin-right: 10px;
+  text-shadow: 1px 1px 2px rgba(58, 73, 105, 0.3);
+}
+
+/* Buttons in detail */
+.detail .btn.small {
+  padding: 0.5rem 1.3rem;
+  font-size: 0.9rem;
+  margin: 0 10px;
+  box-shadow: 0 4px 12px rgba(111, 134, 214, 0.6);
+}
+
+.detail .btn.small.danger {
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  box-shadow: 0 4px 12px rgba(255, 159, 101, 0.6);
+}
+
+/* Properties section in landlord detail */
+
+.detail section {
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.detail section h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #3a4969;
+  border-bottom: 3px solid #6f86d6;
+  padding-bottom: 6px;
+  margin-bottom: 1.3rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(58, 73, 105, 0.3);
+}
+
+.detail section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.detail section ul li {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 15px rgba(111, 134, 214, 0.15);
+  font-weight: 600;
+  color: #2c3e50;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.detail section ul li:hover {
+  background: linear-gradient(135deg, #6f86d6, #48c6ef);
+  color: white;
+  box-shadow: 0 8px 30px rgba(72, 198, 239, 0.6);
+}
+.detail section ul li a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.detail section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .entity-list li, .detail {
+    padding: 1.5rem 1.8rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

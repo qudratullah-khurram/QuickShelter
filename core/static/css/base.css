@@ -1,95 +1,118 @@
-/* base.css — global base styles */
-:root{
-  --bg:#f6f8fb;
-  --card:#ffffff;
-  --accent:#2d6cdf;
-  --muted:#6b7280;
-  --danger:#e74c3c;
-  --radius:12px;
-  --max-width:1100px;
+/* === Base CSS for QuickShelter === */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  margin:0;
-  background:linear-gradient(180deg,#f6f8fb 0%, #ffffff 100%);
-  color:#0f172a;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f6ff;
+  color: #34495e;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container{
-  width:95%;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:24px 0;
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.qs-header{
-  background:var(--card);
-  border-bottom:1px solid #eef2f7;
-  position:sticky;
-  top:0;
-  z-index:40;
-}
-.qs-header .container{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  padding:12px 0;
-}
-.logo{
-  font-weight:700;
-  color:var(--accent);
-  text-decoration:none;
-  font-size:1.25rem;
-}
-.qs-nav{
-  margin-left:auto;
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-.qs-nav a{ text-decoration:none; color:#334155; padding:8px 10px; border-radius:8px; }
-.qs-nav a:hover{ background:#f1f5f9; }
+/* === Header & Nav === */
 
-.qs-footer{
-  margin-top:48px;
-  padding:18px 0;
-  text-align:center;
-  color:var(--muted);
-  font-size:0.9rem;
+.qs-header {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  padding: 1rem 0;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-/* Utility */
-.btn{
-  display:inline-block;
-  padding:10px 14px;
-  background:var(--accent);
-  color:#fff;
-  border-radius:10px;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
+.qs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.3rem;
+  flex-wrap: wrap;
 }
-.btn.ghost{ background:transparent; color:var(--accent); border:1px solid #e6eefc; }
-.btn.small{ padding:6px 10px; font-size:0.9rem; border-radius:8px; }
-.btn.danger{ background:var(--danger); }
 
-.lead{ color:var(--muted); margin-bottom:12px; }
-
-/* Cards & lists */
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow: 0 6px 18px rgba(14,30,37,0.06);
+.qs-nav a,
+.qs-nav button,
+.qs-nav li a {
+  color: #e0e7ff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
 }
-.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
-.entity-list{ list-style:none; padding:0; margin:18px 0; }
-.entity-list li{ padding:10px 0; border-bottom:1px dashed #f1f5f9; }
-.muted{ color:var(--muted); font-size:0.95rem; }
-.detail{ background:var(--card); padding:18px; border-radius:12px; box-shadow:0 8px 18px rgba(14,30,37,0.06); }
+
+.qs-nav a:hover,
+.qs-nav button:hover,
+.qs-nav li a:hover {
+  background-color: #1e40af;
+  color: #f0f9ff;
+}
+
+.qs-nav .user {
+  margin-left: auto;
+  font-weight: 600;
+  color: #cbd5e1;
+  font-size: 1rem;
+}
+
+/* Fix inline logout button styling */
+.qs-nav form button {
+  font-family: inherit;
+}
+
+/* When user not authenticated, make signup a list item */
+.qs-nav li {
+  list-style: none;
+  display: inline;
+}
+
+/* === Main content === */
+
+main.container {
+  flex-grow: 1;
+  padding: 2rem 0;
+}
+
+/* === Footer === */
+
+.qs-footer {
+  background: #2563eb;
+  color: #e0e7ff;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 600;
+  box-shadow: 0 -3px 8px rgba(37, 99, 235, 0.5);
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+/* === Responsive === */
+
+@media (max-width: 600px) {
+  .qs-nav {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+  .qs-nav .user {
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin: 0.7rem 0 0 0;
+  }
+}

@@ -1,4 +1,168 @@
-/* properties.css */
-.property{ padding:18px; background:var(--card); border-radius:12px; box-shadow: 0 8px 18px rgba(14,30,37,0.06); }
-.property .actions{ margin:14px 0; display:flex; gap:8px; }
-.property ul{ margin:8px 0 0; }
+/* === Shiny Colorful Properties List & Detail === */
+
+h1 {
+  font-size: 2.6rem;
+  color: #2a3a67; /* deep blue */
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-shadow: 1px 1px 4px rgba(42, 58, 103, 0.5);
+}
+
+.btn {
+  background: linear-gradient(45deg, #56ccf2, #2f80ed);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(47, 128, 237, 0.6);
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: linear-gradient(45deg, #2f80ed, #56ccf2);
+  box-shadow: 0 6px 20px rgba(86, 204, 242, 0.9);
+  transform: scale(1.05);
+}
+
+.btn.danger {
+  background: linear-gradient(45deg, #ff6e6e, #e74c3c);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.7);
+}
+
+.btn.danger:hover {
+  background: linear-gradient(45deg, #e74c3c, #ff6e6e);
+  box-shadow: 0 6px 20px rgba(255, 110, 110, 0.9);
+  transform: scale(1.05);
+}
+
+.property, .entity-list li {
+  background: linear-gradient(145deg, #e0f7fa, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 150, 136, 0.2);
+  padding: 2rem 2.5rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+.property:hover, .entity-list li:hover {
+  box-shadow: 0 12px 45px rgba(0, 150, 136, 0.4);
+  transform: translateY(-6px);
+}
+
+.property h1, .entity-list li > div > a {
+  color: #00796b;
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-shadow: 1px 1px 2px rgba(0, 121, 107, 0.3);
+}
+
+.property p.muted, .entity-list li p.muted {
+  color: #004d40;
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.property p, .property p strong {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: #004d40;
+  line-height: 1.5;
+}
+
+.property p strong {
+  color: #009688;
+  margin-right: 8px;
+  text-shadow: 1px 1px 1px rgba(0, 150, 136, 0.5);
+}
+
+.property .actions {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.property .actions .btn {
+  margin: 0 1rem;
+  padding: 0.7rem 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 15px rgba(0, 150, 136, 0.4);
+}
+
+.property section h2 {
+  margin-top: 3rem;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #00796b;
+  border-bottom: 3px solid #009688;
+  padding-bottom: 8px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 150, 136, 0.3);
+}
+
+.property section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.property section ul li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #b2dfdb;
+  font-size: 1.1rem;
+  color: #004d40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.property section ul li a {
+  color: #00796b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.property section ul li a:hover {
+  color: #004d40;
+  text-shadow: 0 0 5px #009688;
+}
+
+/* Landlord link in property detail */
+.property p a {
+  font-weight: 700;
+  color: #00796b;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 121, 107, 0.4);
+}
+
+.property p a:hover {
+  color: #004d40;
+  text-shadow: 0 0 8px #009688;
+}
+
+.entity-list li {
+  font-size: 0.95rem;
+  padding: 1.2rem 2rem;
+}
+
+.entity-list li > div > a {
+  font-size: 1.0rem;
+}
+
+.entity-list li p.muted {
+  font-size: 0.9rem;
+}

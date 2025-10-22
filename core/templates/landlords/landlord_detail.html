@@ -7,7 +7,7 @@
 {% block content %}
 <div class="detail">
   <h1>{{ object.name }}</h1>
-  <p>{{ object.address }}</p>
+  <p><strong>Address:</strong> {{ object.address }}</p>
   <p>Phone: {{ object.phone_number }} | Email: {{ object.email }}</p>
   <a class="btn small" href="{% url 'landlord-edit' object.pk %}">Edit</a>
   <a class="btn small danger" href="{% url 'landlord-delete' object.pk %}">Delete</a>

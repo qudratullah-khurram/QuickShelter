@@ -27,5 +27,6 @@ urlpatterns = [
     path("tenants/<int:pk>/edit/", views.TenantUpdateView.as_view(), name="tenant-edit"),
     path("tenants/<int:pk>/delete/", views.TenantDeleteView.as_view(), name="tenant-delete"),
     path('accounts/signup/', views.signup, name='signup'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', views.force_logout, name='logout'),
+
 ]
